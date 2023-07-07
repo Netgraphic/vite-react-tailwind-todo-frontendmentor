@@ -5,7 +5,8 @@ const TodoItem = ({ todo, updateTodo, removeTodo }) => {
     const { id, title, completed } = todo;
 
     const buttonClasses = {
-        classCheck: "grid place-items-center bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400",
+        classCheck:
+            "grid place-items-center bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400",
         classUncheck: "inline-block",
     };
 
@@ -23,7 +24,13 @@ const TodoItem = ({ todo, updateTodo, removeTodo }) => {
             >
                 {completed && <IconCheck />}
             </button>
-            <p className={`grow text-gray-600 ${completed && 'line-through'}`}>{title}</p>
+            <p
+                className={`grow text-gray-600 transition-all duration-200 dark:text-gray-400 ${
+                    completed && "line-through"
+                }`}
+            >
+                {title}
+            </p>
             <button onClick={() => removeTodo(id)} className="flex-none">
                 <IconCross />
             </button>
