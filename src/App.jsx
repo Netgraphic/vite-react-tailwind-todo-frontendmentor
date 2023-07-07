@@ -79,6 +79,7 @@ const App = () => {
                     todos={filteredTodos()}
                     updateTodo={updateTodo}
                     removeTodo={removeTodo}
+                    filter={filter}
                 />
 
                 <TodoComputed
