@@ -68,6 +68,20 @@ const App = () => {
         }
     };
 
+    const orderTodos = (arrayTodos) => { 
+        return arrayTodos.sort((a, b) => {
+            if(a.completed === b.completed) {
+                return 0;
+            }
+            if(a.completed) {
+                return 1;
+            }
+            if(!a.completed) {
+                return -1;
+            }
+        });
+    };
+
     return (
         <div className="min-h-screen bg-gray-200 bg-mobile-light bg-contain bg-no-repeat transition-all duration-200 dark:bg-gray-900 dark:bg-mobile-dark md:bg-desktop-light md:dark:bg-desktop-dark">
             <Header />
@@ -76,7 +90,7 @@ const App = () => {
                 <TodoCreate createTodo={createTodo} />
 
                 <TodoList
-                    todos={filteredTodos()}
+                    todos={orderTodos(filteredTodos())}
                     updateTodo={updateTodo}
                     removeTodo={removeTodo}
                     filter={filter}
