@@ -92,19 +92,22 @@ const App = () => {
         });
     };*/
 
-    const handleDragEnd = (result) => { 
+    const handleDragEnd = (result) => {
         const { destination, source } = result;
         if (!destination) {
             return;
-        } 
-        if (source.index === destination.index && source.droppableId === destination.droppableId) {
+        }
+        if (
+            source.index === destination.index &&
+            source.droppableId === destination.droppableId
+        ) {
             return;
         }
-            
+
         setTodos((prevTasks) =>
             reorder(prevTasks, source.index, destination.index)
         );
-    }
+    };
 
     return (
         <div className="min-h-screen bg-gray-200 bg-mobile-light bg-contain bg-no-repeat transition-all duration-200 dark:bg-gray-900 dark:bg-mobile-dark md:bg-desktop-light md:dark:bg-desktop-dark">
@@ -120,7 +123,7 @@ const App = () => {
                         removeTodo={removeTodo}
                         filter={filter}
                     />
-                </DragDropContext>            
+                </DragDropContext>
 
                 <TodoComputed
                     computedItemsLeft={computedItemsLeft}
